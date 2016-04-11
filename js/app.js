@@ -7,4 +7,8 @@ $(document).ready(function(){
         $(".ryu-ready").hide();
         $(".ryu-still").show();
     })
+    .on("mousedown", function() {
+    	$(".ryu-still, .ryu-ready").hide();
+    	$(".ryu-throwing, .hadouken").show();
+    })
 });
