@@ -28,5 +28,14 @@ $(document).ready(function(){
     .on("mouseup", function() {
     	$(".ryu-still").show();
     	$(".ryu-throwing, .hadouken, .ryu-ready").hide();
+    });
+    
+    $(document).on("keydown", function (event) {
+        var key = event.which;
+        if (key == 88) { // if the key being pressed is #88
+            $(".ryu-ready, .ryu-still").hide();
+            $(".ryu-cool").show();
+        }
     })
+
 });
