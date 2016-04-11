@@ -6,16 +6,17 @@ $(document).ready(function(){
     }
    
     $(".ryu").on("mouseenter", function(){
-        $(".ryu-still").hide();
+        $(".ryu-still, .ryu-cool, .ryu-throwing").hide();
         $(".ryu-ready").show();
-    })
-    .on("mouseleave", function(){
-        $(".ryu-ready").hide();
+    });
+
+    $(".ryu").on("mouseleave", function(){
+        $(".ryu-ready, .ryu-cool, .ryu-throwing").hide();
         $(".ryu-still").show();
-    })
-    .on("mousedown", function() {
+    });
+    $(".ryu").on("mousedown", function() {
     	playHadouken();
-        $(".ryu-still, .ryu-ready").hide();
+        $(".ryu-still, .ryu-ready, .ryu-cool").hide();
     	$(".ryu-throwing, .hadouken").show();
         $(".hadouken").animate(
             {"left": "1020px"},
@@ -27,7 +28,7 @@ $(document).ready(function(){
     })
     .on("mouseup", function() {
     	$(".ryu-still").show();
-    	$(".ryu-throwing, .hadouken, .ryu-ready").hide();
+    	$(".ryu-throwing, .hadouken, .ryu-ready, .ryu-cool").hide();
     });
     
     $(document).on("keydown", function (event) {
@@ -35,6 +36,13 @@ $(document).ready(function(){
         if (key == 88) { // if the key being pressed is #88
             $(".ryu-ready, .ryu-still").hide();
             $(".ryu-cool").show();
+        }
+    })
+    .on("keyup", function(event) {
+        var key = event.which;
+        if (key == 88) {
+            $(".ryu-still").show();
+            $(".ryu-cool").hide();
         }
     })
 
