@@ -10,6 +10,13 @@ $(document).ready(function(){
     .on("mousedown", function() {
     	$(".ryu-still, .ryu-ready").hide();
     	$(".ryu-throwing, .hadouken").show();
+        $(".hadouken").animate(
+            {"left": "1020px"},
+            500,
+            function(){
+                $(this).hide();
+                $(this).css({"left": "520px"})
+            });
     })
     .on("mouseup", function() {
     	$(".ryu-still").show();
